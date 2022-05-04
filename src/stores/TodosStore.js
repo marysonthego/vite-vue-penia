@@ -55,7 +55,7 @@ export const useTodosStore = defineStore('todos', {
   // any amount of arguments, return a promise or not
     addTodo(label) {
       // you can directly mutate the state
-      todos.push({ label: label, id: uniqueid("todo-"), done: false })
+      this.todos.push({ label: label, id: uniqueid("todo-"), done: false })
     },
 
     updateDoneStatus(todoId) {

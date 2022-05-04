@@ -7,7 +7,7 @@ import TodoForm from "./components/TodoForm.vue"
 const todosStore = useTodosStore();
 
 const updateDoneStatus = (todoId) => {
-  const todoToUpdate = todosStore.find((todo) => todo.id === todoId);
+  const todoToUpdate = todosStore.todos.find((todo) => todo.id === todoId);
   todoToUpdate.done = !todoToUpdate.done;
 };
 
@@ -24,7 +24,7 @@ todosStore.fill();
 <template>
   <div id="app">
     <h1>My To-Do List</h1>
-    <todo-form @todo-added="todosStore.addToDo"></todo-form>
+    <todo-form @todo-added="todosStore.addTodo"></todo-form>
     <h2 id="list-summary">{{ listSummary }}</h2>
     <ul aria-labelledby="list-summary" class="stack-large">
       <li v-for="todo in todosStore.todos" :key="todo.id">
